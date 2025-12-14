@@ -77,13 +77,13 @@ const BACKGROUND_FADE_START = Math.max(
 );
 
 const TYPED_LINES = [
-  "> tina",
+  "> Buggee, My love",
   "...",
   "> today is your birthday",
   "...",
-  "> so i made you this computer program",
+  "> so i made you this computer program, to make your birthday special",
   "...",
-  "٩(◕‿◕)۶ ٩(◕‿◕)۶ ٩(◕‿◕)۶"
+   "٩(◕‿◕)۶ ٩(◕‿◕)۶ ٩(◕‿◕)۶"
 ];
 const TYPED_CHAR_DELAY = 100;
 const POST_TYPING_SCENE_DELAY = 1000;
@@ -574,6 +574,45 @@ export default function App() {
           <ConfiguredOrbitControls />
         </Suspense>
       </Canvas>
+      {/* Pop-up button after candle is blown out */}
+      {!isCandleLit && hasAnimationCompleted && (
+        <div
+          style={{
+            position: "fixed",
+            right: "32px",
+            bottom: "32px",
+            zIndex: 1000,
+          }}
+        >
+          <a
+  href="https://heartbloom-stories.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    padding: "10px 22px",
+    background: "#e75480",
+    color: "#fff",
+    borderRadius: "12px",
+    fontSize: "1rem",
+    fontWeight: 500,
+    textDecoration: "none",
+    boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+    transition: "background 0.2s",
+    whiteSpace: "pre-line", // ⭐ keeps your line breaks!
+    textAlign: "center",    // ⭐ centers the text nicely
+    maxWidth: "260px",      // optional limit
+  }}
+  onMouseOver={e => (e.currentTarget.style.background = "#d13b6b")}
+  onMouseOut={e => (e.currentTarget.style.background = "#4e051bff")}
+>
+  Visit Heartbloom Stories
+  Please scroll just a little and then wait ❤️
+  A Special Gift will just take a moment...
+</a>
+
+        </div>
+      )}
     </div>
   );
 }
